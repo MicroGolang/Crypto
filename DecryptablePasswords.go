@@ -5,7 +5,7 @@
 ** @Filename:				DecryptablePasswords.go
 **
 ** @Last modified by:		Tbouder
-** @Last modified time:		Thursday 26 September 2019 - 13:17:17
+** @Last modified time:		Thursday 26 September 2019 - 13:42:50
 *******************************************************************************/
 
 package		crypto
@@ -60,7 +60,6 @@ func	EncryptPasswordWithBase64(uncrypted, token, prependedMasterKey, appendedMas
     data := base64.URLEncoding.EncodeToString([]byte(enc))
 	return string(data), nil
 }
-
 
 /*DecryptBusinessesDbPassword *************************************************
 *	Decrypt a password according to the passPhrase and the token
