@@ -5,7 +5,7 @@
 ** @Filename:				DecryptablePasswords.go
 **
 ** @Last modified by:		Tbouder
-** @Last modified time:		Thursday 26 September 2019 - 13:42:50
+** @Last modified time:		Monday 14 October 2019 - 12:26:40
 *******************************************************************************/
 
 package		crypto
@@ -39,7 +39,7 @@ func	DecryptPassword(crypted, token, prependedMasterKey, appendedMasterKey strin
 	passPhrase := prependedMasterKey + token + appendedMasterKey
 	dec, err := aes256cbc.DecryptString(passPhrase, crypted);
 	if (errors.HasError(err)) {
-		return ``, err
+		return dec, err
 	}
 	return dec, nil
 }
@@ -52,7 +52,7 @@ func	EncryptPasswordWithBase64(uncrypted, token, prependedMasterKey, appendedMas
 		return ``, errors.New(`No encrypted, token or masterKeyPart`)
 	}
 
-	passPhrase := prependedMasterKey+ token + appendedMasterKey
+	passPhrase := prependedMasterKey + token + appendedMasterKey
 	enc, err := aes256cbc.EncryptString(passPhrase, uncrypted);
 	if (errors.HasError(err)) {
 		return ``, err
